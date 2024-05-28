@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SALARY</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style >
+        body{
+            background-color: #f7f7f7 !important;
+        }
+        .style-head {
+            text-align: center;
+            padding: 20px 20px 20px 20px;
+            color: #CD5C5C;
+            border-radius: 2.5rem;
+            margin-top: 30px;
+            background-color: #f7f7f7;
+        }
+        .space-class {
+            margin: 10px 10px 10px 10px !important;
+            font-weight: 500 !important;
+            border-radius: 5rem;
+        }
+        .credits{
+            text-align: center;
+            color: #000;
+        }
+        .rowss {
+            background-color: #acacff ;
+            border-radius: 2.5rem;
+        }
+        .content{
+            font-size: 20px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container container0 bg-light py-2 px-3 ">
+        <div class="row rowss text-light px-4" >
+            <h1 class="style-head">SALARY CALCULATOR</h1>
+            <p class="credits">Created with <span style="color: red;">&hearts;</span> <span style="font-weight: 600;"> By Thanush, Ganesha Ram & Mridhula</span></p>
+                <br>
+                <br>         
+            <div id="fulldiv" class="content text-center p-3">
+                <h4 class="text-dark"> Enter the following information to calculate your annual salary.</h4>
+                <label for="txt_wage">Hourly Wage:</label>
+                <input class="btn btn-light space-class" type="text" name="wage" id="txt_wage" value ="0.00"/>
+                <br>
+                <label for="txt_hours">Hours Per day:</label>
+                <input class="btn btn-light space-class " type="text" name="hours" id="txt_hours" value= "0.0"/>
+                <br/><br/>
+                <b class="btn btn-light space-class" role="button" value="calculate" onclick="calcSalary()">Calculate</b><br><br>
+
+                <b class="text-dark">SALARY:</b><b class="btn btn-light space-class" id="results"></b>
+            </div>
+            <div class="text-left p-3">
+                <a href="/frontpage" class="btn btn-light space-class">Go to homepage</a>
+            </div>
+        </div>
+    </div>  
+  
+  <script>
+        function calcSalary() 
+        {
+            var wage = parseFloat(document.getElementById('txt_wage').value);
+            var hours = parseFloat(document.getElementById('txt_hours').value);
+            var calculate = wage * hours * 52 * 6;
+            document.getElementById('results').innerHTML = calculate;
+		
+        }
+    </script>
+
+</body>
+  
+</html>

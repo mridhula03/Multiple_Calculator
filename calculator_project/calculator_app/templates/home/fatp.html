@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BODY FAT CALC</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style >
+
+        body{
+            background-color: #f7f7f7 !important;
+        }
+        .style-head {
+            text-align: center;
+            padding: 20px 20px 20px 20px;
+            color: #CD5C5C;
+            border-radius: 2.5rem;
+            margin-top: 30px;
+            background-color: #f7f7f7;
+        }
+        .space-class {
+            margin: 10px 10px 10px 10px !important;
+            font-weight: 500 !important;
+            border-radius: 5rem;
+        }
+        .credits{
+            text-align: center;
+            color: #000;
+        }
+        .rowss {
+            background-color: #CCCCFF ;
+            border-radius: 2.5rem;
+        }
+        td{ 
+            font-size: 20px;
+            color: #000;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container container0 bg-light py-2 px-3 col-8">
+        <div class="row rowss text-light px-4 text-left" >
+            <h1 class="style-head">BODY FAT CALCULATOR</h1>
+            <p class="credits">Created with <span style="color: red;">&hearts;</span> <span style="font-weight: 600;"> By Thanush, Ganesha Ram & Mridhula</span></p>
+                <br>
+                <br>  
+                <div class="col-3">
+
+                </div>
+
+                <div class="col-8 text-light text-left p-4">
+                    <div id=outer>
+                        <form name=fp>
+                            <table class=main>
+                                <col class=w60>
+                                <col class=w60>
+                                <tr >
+                                    <td>Sex :
+                                    <td ><select  class="btn btn-light space-class" id=sf>
+                                            <option value=m>Male
+                                            <option value=f>Female
+                                        </select>
+                                <tr>
+                                    <td>Height <span id=thf>(Cms)</span>
+                                    <td ><input class="btn btn-light space-class" id=hf>
+                                <tr >
+                                    <td>Neck Girth<span id=tneck> (Cms)</span>
+                                    <td><input class="btn btn-light space-class" id=neck>
+                                <tr>
+                                    <td>Waist <span id=twaist>(Cms)</span>
+                                    <td><input  class="btn btn-light space-class" id=waist>
+                                <tr>
+                                    <td><span id=thips> Hips (Cms)</span>
+                                    <td><input class="btn btn-light space-class" id=hips> <br><br>
+                                <tr>
+                                    <td class="btn btn-light space-class" role="button" type=reset>Reset</td>
+                                    <td class="btn btn-light space-class" role="button"onclick='bfat();'>Submit</td><br>
+                                <tr>
+                                    <td>Your Body Fat
+                                    <td><input id=bf class="btn btn-light space-class" class=op>
+                                <tr>
+                                    <td>Body Fat Category
+                                    <td><input id=nbf class="btn btn-light space-class" class=op>
+                                
+                            </table>
+                        </form>
+                    </div>
+                    <br> 
+                </div>
+                <div class="text-left p-2">
+                    <a href="/frontpage" class="btn btn-light space-class">Go to homepage</a>
+                </div>
+                
+            </div>
+        </div>  
+ <script>var $ = function (id) { return document.getElementById(id) };
+    function msystem() { if ($('msf').value == 'metric') { $('thf').innerHTML = ' (Cms)'; $('tneck').innerHTML = ' (Cms)'; $('twaist').innerHTML = ' (Cms)'; $('thips').innerHTML = ' (Cms)' } else { $('thf').innerHTML = ' (inches)'; $('tneck').innerHTML = ' (inches)'; $('twaist').innerHTML = ' (inches)'; $('thips').innerHTML = ' (inches)' } }
+    function bfat() {
+         var sex = $('sf').value; var height = $('hf').value; var neck = $('neck').value; var waist = $('waist').value; var hips = $('hips').value; var ibf; var bfc; if (height == null || height == 0 || neck == null || neck == 0 || waist == null || waist == 0) { $('bf').value = 'Pl. enter data.' } else { $('bf').value = '' }
+        if (sex == 'm' && height > 0 && waist > 0 && neck > 0) { ibf = Math.round((86.010 * (Math.log(waist * 1 - neck * 1) / Math.log(10)) - 70.041 * (Math.log(height) / Math.log(10)) + 30.30 * 1) * 100) / 100; if (ibf <= 5) { bfc = 'Essential' } else if (ibf > 5 && ibf <= 17) { bfc = 'Fit' } else if (ibf > 17 && ibf <= 25) { bfc = 'Acceptable' } else if (ibf > 25) { bfc = 'Obese' } $('bf').value = ibf + ' % '; $('nbf').value = bfc }
+        
+        else if (sex == 'f' && height > 0 && waist > 0 && neck > 0) {
+            ibf = Math.round((163.205 * (Math.log(waist * 1 + hips * 1 - neck * 1) / Math.log(10)) - 97.684 * (Math.log(height) / Math.log(10)) - 104.912 * 1) * 100) / 100;
+            if (ibf <= 15) { bfc = 'Essential' } else if (ibf > 15 && ibf <= 24) { bfc = 'Fit' } else if (ibf > 24 && ibf <= 31) { bfc = 'Acceptable' } else if (ibf > 31) { bfc = 'Obese' } $('bf').value = ibf + ' % '; $('nbf').value = bfc
+        } 
+    }
+</script>
+
+</body>
+  
+</html>
